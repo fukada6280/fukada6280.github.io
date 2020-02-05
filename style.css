@@ -1,0 +1,243 @@
+html,
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  /*上下の黒い斜め■の設定*/
+  content: ""; /* 文字は入れない */
+  display: block; /* 枠を生成 */
+  width: 0; /* 中身は作らない→枠線だけが残る 枠線は上下左右に分かれておりその境界は斜め線 */
+  height: 0;
+  border-width: 2em 50vw; /* 枠線の設定: 枠線の太さ 横幅の大きさ(100vmで100%) */
+  border-style: solid; /* 枠線は１本線で表示される */
+  position: absolute;
+  z-index: -1;
+}
+
+body::before {
+  border-color: #606060 transparent transparent #606060; /* 上 右 下 左 の順に色を指定する */
+  top: 0;
+}
+
+body::after {
+  border-color: transparent #606060 #606060 transparent;
+}
+
+header {
+  /* 大きな枠組みでのタイトルの設定 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4em 0;
+}
+
+.header__title {
+  /* Cats Garden 部分*/
+  padding: 0 1em;
+  border-bottom: solid 1px;
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
+  font-family: "Yrsa";
+}
+
+.header__text {
+  /* created by FUKADA Hiroki */
+  margin: 0;
+}
+
+.section {
+  /* 大きな枠組みでの本文部分の設定 */
+  max-width: 800px;
+  margin: 6em auto;
+  position: relative;
+}
+
+.section__title {
+  /* 本文部分のタイトルの設定 */
+  border-left: #606060 solid 0.8em;
+  padding: 0 0.5em;
+  font-weight: normal;
+}
+
+.section__text {
+  /* 本文部分の本文の設定 */
+  border-left: #606060 solid 0.1em;
+  padding: 0 2em;
+  margin-left: 10%;
+  width: 20em;
+}
+
+/* 背景の黄色黒色のリボンの作成 */
+.section:nth-of-type(2)::before,
+.section:nth-of-type(2)::after {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 140%;
+  top: -10%;
+  left: -20%;
+  display: block;
+  z-index: -2;
+}
+
+.section:nth-of-type(2)::before {
+  background: #606060;
+  transform: rotate(-2deg);
+}
+.section:nth-of-type(2)::after {
+  background: #fff59c;
+  transform: rotate(3deg);
+}
+
+/* 背景の黄色黒色のリボンの作成 */
+.section:nth-of-type(4)::before,
+.section:nth-of-type(4)::after {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 140%;
+  top: -10%;
+  left: -20%;
+  display: block;
+  z-index: -2;
+}
+
+.section:nth-of-type(4)::before {
+  background: #606060;
+  transform: rotate(-2deg);
+}
+.section:nth-of-type(4)::after {
+  background: #fff59c;
+  transform: rotate(3deg);
+}
+
+h3 {
+  font-weight: normal; /* 太さを細くする */
+}
+
+/* 円を描画 */
+.fillCircleAboutMe {
+  /*top ,leftで大きさを決めて、z-indexを変更、positionをabsoluteと指定する*/
+  background: #fff59c;
+  position: absolute;
+  width: 180px; /*幅*/
+  height: 180px; /*高さ*/
+  top: -10px;
+  right: 100px;
+  border-radius: 50%; /*角丸*/
+  z-index: -2;
+  animation: fuwa 3s linear infinite;
+}
+
+/* 円を描画 */
+.flameCircleAboutMe {
+  /*top ,leftで大きさを決めて、z-indexを変更、positionをabsoluteと指定する*/
+  position: absolute;
+  width: 140px; /*幅*/
+  height: 140px; /*高さ*/
+  top: 40px;
+  right: 40px;
+  border-radius: 50%; /*角丸*/
+  z-index: -1;
+  border: 1px solid #666666; /* 枠線を付加 */
+  animation: fuwa 4s linear infinite;
+}
+
+/* 円を描画 */
+.flameCirclePortfolio1 {
+  position: absolute;
+  width: 170px; /*幅*/
+  height: 170px; /*高さ*/
+  top: 40px;
+  right: 270px;
+  border-radius: 50%; /*角丸*/
+  z-index: -1;
+  border: 1px solid #666666; /* 枠線を付加 */
+  animation: rotation 15s linear infinite;
+  transform-origin: 90px 90px;
+}
+
+/* 円を描画 */
+.flameCirclePortfolio2 {
+  position: absolute;
+  width: 130px; /*幅*/
+  height: 130px; /*高さ*/
+  top: 20px;
+  right: 90px;
+  border-radius: 50%; /*角丸*/
+  z-index: -1;
+  border: 1px solid #666666; /* 枠線を付加 */
+  animation: rotation 10s linear infinite;
+  transform-origin: 70px 70px;
+}
+
+/* 円を描画 */
+.flameCirclePortfolio3 {
+  position: absolute;
+  width: 70px; /*幅*/
+  height: 70px; /*高さ*/
+  top: 180px;
+  right: 50px;
+  border-radius: 50%; /*角丸*/
+  z-index: -1;
+  border: 1px solid #666666; /* 枠線を付加 */
+  animation: rotation 8s linear infinite;
+  transform-origin: 34px 34px;
+}
+
+@keyframes fuwa {
+  0% {
+    transform: translateY(0);
+  }
+  44.44444% {
+    transform: translateY(-10px);
+  }
+  88.88888% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 三角形を描画 */
+.fillTriangleBlog1 {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  border-right: 80px solid transparent;
+  /*√3 * 上の長さで正三角形の高さが求まる */
+  border-bottom: 138.564px solid #fff59c;
+  border-left: 80px solid transparent;
+  transform: rotate(25deg); /* 回転させる */
+  z-index: -1;
+  animation: rotation 40s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 三角形を描画 */
+.fillTriangleBlog2 {
+  position: absolute;
+  top: 150px;
+  right: 250px;
+  border-right: 40px solid transparent;
+  /*√3 * 上の長さで正三角形の高さが求まる */
+  border-bottom: 69.282px solid #fff59c;
+  border-left: 40px solid transparent;
+  transform: rotate(-10deg); /* 回転させる */
+  z-index: -1;
+  animation: rotation 50s linear infinite;
+}
