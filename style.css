@@ -241,3 +241,23 @@ h3 {
   z-index: -1;
   animation: rotation 50s linear infinite;
 }
+
+/*未訪問のリンクの色*/
+.link--list:link {
+  color: #0000ff;
+}
+
+/*訪問済みのリンクの色*/
+.link--list:visited {
+  color: #00ccff;
+}
+
+/*カーソルが乗っているリンクの色*/
+.link--list:hover {
+  color: #ffffff;
+}
+
+/*クリック中のリンクの色*/
+.link--list:active {
+  color: #00ff00;
+}
